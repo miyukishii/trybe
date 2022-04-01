@@ -1,0 +1,39 @@
+<style>
+        h1 { 
+            font-size: 65px;
+            color: orange;
+            font-family: sans-serif;
+        }
+        #list-style {
+            background-color: aquamarine;
+        }
+        .LS {
+            background-color: indianred;
+            line-height: 3ch;
+            text-decoration-line:underline;
+            text-decoration-color:blue ;
+        }
+        p { 
+            font-weight: 600;
+            font-size: 3em;
+            font-style:italic;
+        }
+        body {
+            font-size: 16px;
+        }
+        #list1 {
+            background-color: aqua;
+        }
+        #list2 {
+            background-color:lightseagreen;
+        }
+        #list3 {
+            background-color: royalblue;
+        }
+        #paragrafo1 {
+            text-decoration-line:overline underline;
+            text-decoration-color:darkgreen;
+            text-decoration-style: wavy ;
+
+        }
+    </style>
