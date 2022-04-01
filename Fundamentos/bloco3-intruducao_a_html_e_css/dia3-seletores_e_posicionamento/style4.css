@@ -1,0 +1,41 @@
+div:hover {
+    border-style:solid;
+}
+.cor-primária {
+    border-color: red;
+   
+}
+.cor-secundária {
+    border-color: darkgreen;
+    
+}
+.cor-complementar {
+    border-color:chartreuse;
+    
+}
+.cor-escura {
+    border-color: black;
+    
+}
+.cor-clara {
+    border-color: darkkhaki;
+   
+}
+h3 {
+    font-style: italic;
+}
+#c-p {
+    text-decoration:line-through;
+}
+#c-s {
+    text-decoration: underline;
+}
+#c-c {
+    text-decoration:underline line-through;
+}
+#c-e {
+    text-decoration:dotted underline;
+}
+#c-cl {
+    text-decoration:overline dotted;
+}
