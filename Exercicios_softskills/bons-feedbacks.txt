@@ -1,0 +1,13 @@
+Situação:
+Ana Maria, dev front-end pleno da Google, vai fazer uma apresentação muito importante para o conselho da companhia!
+Imprevistos acontecem, e ela acabou se atrasando 15 minutinhos para a reunião!
+Chegando lá, percebeu que não tinha subido a apresentação para a nuvem e que o computador dela não tinha entrada para o data-show!
+Mesmo assim, por conhecer muito do projeto, conseguiu explicar todo o trabalho e teve a proposta autorizada!
+No final do dia, Ana te manda uma mensagem pedindo um feedback . E agora? Qual feedback você mandaria para ela?
+Obs.: você é colega de trabalho dela.
+Coloquem os seus feedbacks para a Ana aqui
+
+R= Oi, Ana! Primeiramente, parabéns pelo sucesso na apresentação e pela autorização da proposta. Vi que você teve algumas dificuldades antes de começar, mas nada que interferisse na qualidade do projeto, você conseguiu se sair bem da situação. Mas como ouvinte, achei que uma apresentação visual seria um diferencial positivo, na próxima vez posso te ajudar a fazer um checklist do material necessáriopara não haver erros na hora, além de ver com antecedência os equipamentos da apresentação e se são compatíveis com o seu computador. 
+
+Att.,
+Miyuki Ishii
