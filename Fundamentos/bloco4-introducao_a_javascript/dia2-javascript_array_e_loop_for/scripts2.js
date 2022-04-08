@@ -108,6 +108,19 @@
 //   }
 //   console.log(numbers);
 
+// let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+
+// for (let index = 0; index < numbers.length; index += 1) {
+//     for (let secondIndex = index+1; secondIndex < numbers.length; secondIndex += 1) {
+//       if (numbers[index] > numbers[secondIndex]) {
+//         let position = numbers[index];
+//         numbers[index] = numbers[secondIndex];
+//         numbers[secondIndex] = position;
+//         } 
+//     }
+//   }
+//   console.log(numbers);
+
 // Exercício Bônus 2
 
 // let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
@@ -123,28 +136,16 @@
 //   }
 //   console.log(numbers);
 
-// Exercício Bônus 3 
+//Exercício Bônus 3 
 
 // let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
-// for (let index = 0; index < numbers.length; index += 1) {
-//     for (let secondIndex = 1; secondIndex < numbers.length; secondIndex += 1) {
-//          let numbersMultiplicado = numbers[index];
-//          numbers[index]*numbers[secondIndex];
-//     } 
+// let numbersMultiplicado=[];
+// for (index = 0, secondIndex = index +1; index < numbers.length-1, secondIndex < numbers.length; index += 1, secondIndex +=1) {
+//          numbersMultiplicado.push(numbers[index]*numbers[secondIndex]);
 // }
-// console.log(numbers);
+// numbersMultiplicado.push(numbers[numbers.length-1]*2);
+// console.log(numbersMultiplicado);
 
-let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
 
-for (let index = 0; index < numbers.length; index += 1) {
-    for (let secondIndex = index+1; secondIndex < numbers.length; secondIndex += 1) {
-      if (numbers[index] > numbers[secondIndex]) {
-        let position = numbers[index];
-        numbers[index] = numbers[secondIndex];
-        numbers[secondIndex] = position;
-        } 
-    }
-  }
-  console.log(numbers);
 
  
