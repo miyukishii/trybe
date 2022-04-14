@@ -16,11 +16,11 @@
       }
 
       .main-content {
-        background-color: rgb(235, 151, 72);
+        background-color: rgb(255, 251, 13);
       }
 
       .main-content .center-content {
-        background-color: rgb(230, 204, 231);
+        background-color: rgb(185, 38, 1);
         width: 50%;
         margin: 0 auto;
       }
@@ -44,17 +44,48 @@
     <script>
     // 1)
     function changeText(){
-        let paragraph = document.getElementsByTagName("p")[1];
-        paragraph.innerHTML = "Espero estar entendo esse assunto porque está difícil, viu."
+      let paragraph = document.getElementsByTagName("p")[1];
+      paragraph.innerHTML = " <p>Entendendo esse assunto</p>";
     }
-    changetext();
+    changeText();
 
-    // 2)
-    function changeColor() {
+    function changeColorGreen() {
         let mainContent = document.getElementsByClassName("main-content")[0];
         mainContent.style.background = "rgb(76,164,109)";
    }
-   changeColor();
+   changeColorGreen();
+
+   // 3)
+   function changeColorWhite() {
+        let centerContent = document.getElementsByClassName("center-content")[0];
+        centerContent.style.background = "#FFFFFF";
+   }
+   changeColorWhite();
+
+   // 4)
+   function correctionTag() {
+        let title = document.getElementsByTagName("h1")[0];
+        title.innerText = "Exercício 5.1 - JavaScript";
+   }
+   correctionTag();
+
+   // 5)
+   function changeToUppercase() {
+      let allParagraph = document.getElementsByTagName("p"); 
+        for(let i = 0; i < allParagraph.length; i += 1) {
+          allParagraph[i].innerHTML = allParagraph[i].innerHTML.toUpperCase();
+      }
+   }
+   changeToUppercase();
+
+   // 6)
+   function allContent() {
+     let contentOf = document.getElementsByTagName("p");
+      for(let i = 0; i < contentOf.length; i += 1) {
+        console.log(contentOf[i].innerHTML);
+   }
+  }
+  allContent();
         /*
         Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
         - document.getElementById()
