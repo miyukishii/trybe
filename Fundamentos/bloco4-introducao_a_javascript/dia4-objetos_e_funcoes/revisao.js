@@ -68,29 +68,65 @@ if(a>b){
 
 // 6)Escreva um programa que receba o nome de uma peça de xadrez e retorne os movimentos que ela faz.
 
-let pecaXadrez;
-switch(pecaXadrez) {
-    case "The King":
-    console.log("any direction, one square");
-    break;
+// let piece = "THE KING";
+// let pecaXadrez = piece.toLowerCase();
+// switch(pecaXadrez) {
+//     case "the king":
+//     console.log("any direction, one square");
+//     break;
 
-    case "The Queen":
-    console.log("diagonals,down or up vertically, left or right hortizontally, move as many squares as it likes");
-    break;
+//     case "the queen":
+//     console.log("diagonals,down or up vertically, left or right hortizontally, move as many squares as it likes");
+//     break;
 
-    case "The pawn";
-    console.log("any direction, one square");
-    break;
+//     case "the pawn":
+//     console.log("can move forward one or two squares");
+//     break;
 
-    case "The bishop";
-    console.log("any direction, one square");
-    break;
+//     case "the bishop":
+//     console.log("move diagonally as many squares as it likes");
+//     break;
 
-    case "The knight";
-    console.log("any direction, one square");
-    break;
+//     case "the knight":
+//     console.log("moves in a L-shape");
+//     break;
 
-    case "The rook";
-    console.log("any direction, one square");
-    break;
-}
+//     case "the rook":
+//     console.log("moves as many squares as it likes left or right horizontally and vertically");
+//     break;
+
+//     default:
+//         console.log("Error");
+// }
+
+// Exercício 7) Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F. Siga essas regras:
+
+// let percentual = "75%";
+// let porcentagem = parseInt(percentual);
+
+// if(porcentagem < 0|| porcentagem > 100){
+//     console.log("Error");
+// } else if (porcentagem > 90 || porcentagem === 90){
+//     console.log("A");
+// } else if (porcentagem > 80 || porcentagem === 80){
+//     console.log("B");
+// } else if (porcentagem > 70 || porcentagem === 70){
+//     console.log("C");
+// } else if (porcentagem > 60 || porcentagem === 60){
+//     console.log("D");
+// } else if (porcentagem > 50 || porcentagem === 50){
+//     console.log("E");
+// } else {
+//     console.log("F");
+// }
+
+// Exercício 8) Escreva um programa que defina três números em constantes e retorne true se pelo menos uma das três for par. Caso contrário, ele retorna false .
+// function even(array){
+// for (let index in array) {
+//     if(array[index] %2 === 0){
+//        return true;
+//     }
+//   }
+//   return false;
+// }
+// console.log(even([1,3,4]));
