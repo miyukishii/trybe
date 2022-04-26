@@ -238,3 +238,172 @@ if(a>b){
 //     newArray.push(arrayNum[index]/2);
 // }
 // console.log(newArray);
+
+// 21) Ordene o array numbers em ordem crescente e imprima seus valores;
+
+// let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+
+// for (let index = 0; index < numbers.length; index += 1) {
+//     for (let secondIndex = index+1; secondIndex < numbers.length; secondIndex += 1) {
+//       if (numbers[index] > numbers[secondIndex]) {
+//         let position = numbers[index];
+//         numbers[index] = numbers[secondIndex];
+//         numbers[secondIndex] = position;
+//         } 
+//     }
+//   }
+// //   console.log(numbers);
+
+  // 22) Ordene o array numbers em ordem decrescente e imprima seus valores;
+
+//   for( let index = 0; index < numbers.length; index += 1) {
+//       for( let secondIndex = index + 1; secondIndex < numbers.length; secondIndex += 1) {
+//           if( numbers[index] < numbers[secondIndex]) {
+//               let position = numbers[secondIndex];
+//               numbers[secondIndex] = numbers[index];
+//               numbers[index] = position;
+//           }
+//       }
+//   }
+//   console.log(numbers);
+
+  // 23) Agora crie um novo array a partir do array numbers , sem perdê-lo. Cada valor do novo array deverá ser igual ao valor correspondente no array numbers multiplicado pelo seguinte. Caso não haja próximo valor, a multiplicação deverá ser feita por 2.
+// let array = [];
+//   for(let index = 0, secondIndex = index + 1; index < numbers.length, secondIndex <= numbers.length ; index += 1, secondIndex += 1) {
+//     if(index !== numbers.length -1) {
+//   array.push(numbers[index]*numbers[secondIndex]);
+//     } else {
+//         array.push(numbers[index]*2);
+//     }
+// }
+//   console.log(array);
+
+// for(index = 0; index < numbers.length; index += 1) {
+//     if(index !== numbers.length - 1) {
+//         array.push(numbers[index]*numbers[index+1]);
+//     } else {
+//         array.push(numbers[index]*2);
+//     }
+// }
+// console.log(array);
+
+// for(index = 0; index < numbers.length - 1; index += 1) {
+//         array.push(numbers[index]*numbers[index+1]);
+// }
+// array.push(numbers[numbers.length -1]*2);
+// console.log(array);
+
+// 24) Retorne ao exercício 2 e 4 do dia anterior e crie um algoritmo:
+// a) Para o segundo exercício, some todos os valores contidos no array e imprima o resultado;
+
+// utilize a array numbers:
+// let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+
+// // crie uma nova variável para guardar o valor da soma:
+// let sum = 0;
+
+// // percorra a array:
+// for( let index in numbers) {
+// // some todos os valores:
+//     sum += numbers[index];
+// }
+// // imprima o resultado:
+// console.log(sum);
+
+// 24) crie um algoritmo que retorne o fatorial de 10.
+// let num = 10;
+// let fatorial = num;
+// for (index = num - 1; index >= 1; index -= 1) {
+//     fatorial *= index;
+// }
+// console.log(fatorial);
+
+// 25) Desenvolva um algoritmo que é capaz de inverter uma palavra. Por exemplo, a palavra "banana" seria invertida para "ananab"
+
+// let word = "phillipp";
+// let invertedWord = "";
+
+// for(let index = word.length -1; index >= 0; index -= 1) {
+//     invertedWord += word[index];
+// }
+// console.log(invertedWord);
+
+// 26) Escreva dois algoritmos: um que retorne a maior palavra deste array e outro que retorne a menor. Considere o número de caracteres de cada palavra.
+
+// let array = ['java', 'javascript', 'python', 'html', 'css'];
+// let longestWord = array[0];
+// let shortestWord = array[0];
+
+// for(let index = 0; index < array.length; index += 1){
+//     if(array[index].length > longestWord.length) {
+//         longestWord = array[index];
+//     }
+//     if(array[index].length < shortestWord.length) {
+//         shortestWord = array[index];
+//     }
+// }
+// console.log(longestWord);
+// console.log(shortestWord);
+
+// 27)  Um número primo é aquele divisível apenas por 1 e por ele mesmo. Sabendo disso, escreva um algoritmo que retorne o maior número primo entre 0 e 50.
+
+// let biggestNum = 0;
+
+// for(let index = 0; index <= 50; index += 1) {
+//     if(index % index === 0 && index % 1 === 0 )
+// }
+// let arrayPrime = [];
+// function isPrime (num){
+//     for(let dividendo = 0; dividendo <= num; dividendo += 1) {
+//     let isPrimee = true;
+//         for (let divisor = 2; divisor < dividendo; divisor += 1) {
+//             if (dividendo % divisor === 0) {
+//                 isPrimee = false;
+//                 }
+//             }
+//             if(isPrimee === true){
+//                 arrayPrime.push(dividendo);
+//          }
+//      }
+//   return arrayPrime[arrayPrime.length - 1];
+// };
+//   console.log(isPrime(50));
+
+// 28) Faça um programa que, dado um valor n qualquer, seja n > 1 , imprima na tela um quadrado feito de asteriscos de lado de tamanho n:
+
+// let n = 5;
+// let quadrado = "";
+
+// for(let index = 1; index <= n; index += 1) {
+//   quadrado += `*`;
+// }
+// for(let index = 1; index <= n; index += 1) {
+//   console.log(quadrado);
+// }
+
+// 29) Faça o mesmo que antes, mas que imprima um triângulo retângulo com 5 asteriscos de base.
+
+// let n = 5;
+// let quadrado = "";
+//  {
+//   quadrado += `*`;
+//   console.log(quadrado);
+// }
+
+// 30) Agora inverta o lado do triângulo:
+
+let n = 5;
+let quadrado = "";
+let espaco = " ";
+let diferenca = 0;
+
+for(let index = 1; index <= n; index += 1) {
+  if(index < n){
+   quadrado = quadrado + " ";
+   console.log(quadrado);
+  } else {
+    quadrado = quadrado + '*';
+    console.log(quadrado);
+  }
+  
+}
