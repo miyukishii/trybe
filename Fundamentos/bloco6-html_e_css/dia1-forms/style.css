@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(236, 220, 220);
+}
+
+header {
+    background-color: bisque;
+    margin: 5% 10%;
+    padding: 5%;
+    text-align: center;
+    border: 1px solid rgb(214, 131, 131);
+}
+#titulo {
+    padding: 10px;
+    background-color: bisque;
+}
+#resumo-titulo {
+    padding: 10px;
+    background-color: bisque;
+}
+
+#formulario {
+    border: 1px solid rgb(214, 131, 131);
+    background-color: bisque;
+    margin: 0% 10% 7% ;
+    padding: 5%;
+    line-height: 35px;
+}
+form {
+    background-color: bisque;
+    
+}
+
+label {
+    background-color: bisque;
+}
+
+input {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+    width: 70%;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+select {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+textarea {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    width: 70%;
+    height: 100px;
+}
+
+.notification {   
+    width: 20px;
+}
+
+button {
+    width: 80px;
+    height: 25px;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+    word-spacing: 3px;
+    margin-right: 20px;;
+
+}
