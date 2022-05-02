@@ -1,0 +1,39 @@
+<!--Utlizando seletores de elementos
+-getElementById--> 
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p id="paragraph">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p id="second-paragraph">lista</p>
+    </header>
+    <script>
+      const paragraph = document.getElementById("paragraph");
+      paragraph.style.color = "red";
+      paragraph.innerHTML = "Filme";
+      paragraph.className = "paragrafos";
+
+      const title = document.getElementById("page-title");
+      title.innerHTML = " Orgulho e Preconceito";
+      title.style.color = "green";
+      title.style.fontSize = "50px";
+      title.style.border = "1px dotted green"
+      title.style.textAlign = "center";
+
+      const subtitle = document.getElementById("subtitle");
+      subtitle.innerHTML = " Atores:"
+
+      const secondParagraph = document.getElementById("second-paragraph");
+      secondParagraph.className = "paragrafos";
+
+      const firstp = document.getElementsByClassName("paragrafos")[1];
+      firstp.style.color = "blue";
+      
+
+
+    </script>
+  </body>
+</html>
