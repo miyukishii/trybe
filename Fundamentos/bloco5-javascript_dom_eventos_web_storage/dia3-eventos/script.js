@@ -68,12 +68,12 @@ buttonHoliday("Feriados");
 function changeColor() {
   let holiDays = document.getElementsByClassName('holiday');
   for (let index = 0; index < holiDays.length; index += 1) {
-    if (holiDays[index].style.backgroundColor === "red") {
-        holiDays[index].style.backgroundColor = "#eee";
-        holiDays[index].style.color = "#777";
+    if (holiDays[index].style.backgroundColor !== "red") {
+        holiDays[index].style.backgroundColor = "red";
+        holiDays[index].style.color = "white";
     } else {
-      holiDays[index].style.backgroundColor = "red";
-      holiDays[index].style.color = "white";
+      holiDays[index].style.backgroundColor = "#eee";
+      holiDays[index].style.color = "#777";
       }
     }
   }
@@ -83,18 +83,18 @@ holidayButton.addEventListener("click", changeColor);
 
 // Exercício 4)
 
-let accessButtonDiv1 = document.querySelector(".buttons-container")[1];
 function buttonFriday(name){
   let createButton = document.createElement("button");
   createButton.id = "btn-friday";
-  accessButtonDiv1.appendChild(createButton);
+  accessButtonDiv.appendChild(createButton);
   createButton.innerHTML = name;
 }
-buttonHoliday("Sexta-feira");
+buttonFriday("Sexta-feira");
 
 // Exercício 5)
 
-function changeText(array) {
+function changeText() {
+  const array = [4, 11, 18, 25];
   let friDays = document.getElementsByClassName("friday");
   for (let index = 0; index < friDays.length; index += 1) {
     if (friDays[index].innerHTML !== "Sextou!") {
@@ -105,4 +105,29 @@ function changeText(array) {
     }
 }
 let fridayButton = document.querySelector("#btn-friday");
-fridayButton.addEventListener("click", changeText([ 4, 11, 18, 25 ]));
+fridayButton.addEventListener("click", changeText);
+
+// Exercicio 6)
+
+function mouseOver() {
+  let days = document.querySelector('#days');
+
+  days.addEventListener('mouseover', function(event) {
+    event.target.style.fontSize = '30px';
+  })
+};
+
+function mouseOut() {
+  let days = document.querySelector('#days');
+
+  days.addEventListener('mouseout', function(event) {
+    event.target.style.fontWeight = '200';
+  })
+};
+
+mouseOver();
+mouseOut();
+
+
+
+
