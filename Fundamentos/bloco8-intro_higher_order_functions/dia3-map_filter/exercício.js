@@ -171,7 +171,7 @@ function nameAndAge() {
 function fantasyOrScienceFiction() {
     return books.filter((book) => book.genre === 'Fantasia' || book.genre === 'Ficção Científica' );
 }
-// console.log(fantasyOrScienceFiction());
+console.log(fantasyOrScienceFiction());
 
 // Exercício 4 - Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
 
@@ -207,4 +207,4 @@ function authorWith3DotsOnName() {
     ));
     return result[0].name;
 };
-console.log(authorWith3DotsOnName());
+// console.log(authorWith3DotsOnName());
