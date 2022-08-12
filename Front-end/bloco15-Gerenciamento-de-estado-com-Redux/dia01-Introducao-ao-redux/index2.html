@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Trybe</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+    <style>
+      body {
+        color: white;
+        background-color: #333;
+        font-family: sans-serif;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Minha Aplicação</h1>
+      <p>Status: Você está <span id="status">Offline</span></p>
+      <button id="toggle-theme">Light Mode</button>
+      <button id="toggle-status">Ficar Online</button>
+    </div>
+    <script>
+      const THEME_INITIAL_STATE = {
+        theme: 'dark',
+      };
+
+      // 3 - Adicionando cases dentro do switch de cada reducer.
+      const themeReducer = (state = THEME_INITIAL_STATE, action) => {
+        switch (action.type) {
+          case 'LIGHT_MODE':
+            return {
+                ...state,
+                theme: state.theme === 'dark' ? 'light' : 'dark',
+            }
+          default:
+            return state;
+        }
+      };
+
+      const STATUS_INITIAL_STATE = {
+        status: 'offline',
+      };
+
+      const statusReducer = (state = STATUS_INITIAL_STATE, action) => {
+        switch (action.type) {
+          case 'TURN_ONLINE':
+            return {
+              ...state,
+              status: state.status === 'offline' ? 'online' : 'offline',
+            }
+          default:
+            return state;
+        }
+      };
+
+      // 1 - Combinando as reducers com a função combineReducers e salvando-as em uma constante.
+      const rootReducer = Redux.combineReducers({themeReducer, statusReducer});
+
+      // 2 - Criando store com as combinações dos reducers.
+      const store = Redux.createStore(rootReducer);
+
+      // 4 - fala o dispatch de cada uma das actions.
+      const themeButton = document.getElementById('toggle-theme');
+      const statusButton = document.getElementById('toggle-status');
+
+      themeButton.addEventListener('click', () => {
+        store.dispatch({type: 'LIGHT_MODE'});
+      });
+
+      statusButton.addEventListener('click', () => {
+        store.dispatch({type: 'TURN_ONLINE'});
+      });
+    
+      // 5 - adicionando o store.subscribe() para atualizar as informações:
+
+      store.subscribe(() => {
+        const state = store.getState();
+        const body = document.querySelector('body');
+        const span = document.getElementById('status');
+
+        body.style.backgroundColor = state.themeReducer.theme === 'light' ? 'white' : '#333';
+        body.style.color = state.themeReducer.theme === 'light' ? '#333' : 'white';
+        span.innerHTML = state.statusReducer.status === 'online' ? 'Online' : 'Offline';
+      });
+    </script>
+  </body>
+</html>
