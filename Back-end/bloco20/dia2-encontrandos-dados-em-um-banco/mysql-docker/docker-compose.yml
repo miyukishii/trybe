@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  database:
+    image: mysql:8.0.21
+    platform: linux/x86_64
+    ports:
+      - 3002:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    restart: 'always'
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backup:/backup
+
+volumes:
+  mysql_data:
