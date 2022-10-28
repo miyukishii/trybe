@@ -1,0 +1,14 @@
+version: '3'
+services:
+  database:
+    image: mysql:8.0.29
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: trybecashdb
+    ports:
+      - "33060:3306"
+
+# foi definido um serviço chamado database. Esse serviço inicializará um container Docker com a imagem do Servidor MySQL versão 8.0.29.
+# O parâmetro restart define a política de reinício do container como always. Assim, o container sempre será reiniciado automaticamente em caso de parada. Na seção environment foi definido o valor de duas variáveis dentro do container.
+# Já a seção ports está vinculando uma porta do seu computador local (a porta 33060) a uma porta dentro do container (a porta 3306).
