@@ -1,0 +1,25 @@
+// Introdução - NoSQL
+
+// Not Only SQL 
+// Essa definição enfatiza que esses bancos podem utilizar linguagens semelhantes ao SQL para realizar consultas e demais operações, e não somente o SQL em si.
+// O termo NoSQL foi originalmente criado em 1998, basicamente esses bancos operam em computação distribuída.
+
+// Nos bancos de dados NoSQL, outro conceito é utilizado: o BASE (Base Availability, Soft State and Eventually Consistent).
+// Cluster -> se refere à capacidade de um conjunto de servidores ou instâncias se conectarem a um banco de dados.
+// Instância -> é uma coleção de memória e processos que interagem com o banco de dados, que é o conjunto de arquivos físicos que realmente armazenam os dados.
+
+// MongoDB é um banco de dados não relacionais.
+
+// Utilizar o MongoDB com Docker
+// docker pull mongo:4 
+
+// Iniciando uma instância do Mongo Server
+// docker run --name <nome-do-container> -d mongo:4
+// ou
+// docker run --name <nome-do-container> -d -p 27017:27017 mongo:4  // No comando abaixo você disponibiliza um container mapeando sua porta 27017 para a porta 27017 do localhost.
+
+// Executando o shell do Mongo no Docker
+// docker exec -it <nome-do-container-ou-id> mongo
+
+//Importando arquivos locais para dentro do container utilizando mongoimport
+// A ferramenta mongoimport importa conteúdo de um arquivo JSON, CSV ou TSV criada por mongoexport ou, potencialmente, outra ferramenta de exportação de terceiros. 
