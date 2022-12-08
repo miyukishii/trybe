@@ -1,0 +1,113 @@
+Importância
+Filtrar dados é uma das principais ações realizadas em um banco de dados.
+
+~ Operadores de COmparação ~
+Servem para que você execute consultas comparando os valores de atributos dos documentos de uma coleção.
+São utilizados como parte do filtro de alguns métodos para leitura de documentos MongoDB.
+Os métodos find() e o countDocuments() ou update(), aceitam filtros de comparação.
+Os operadores seguem uma sintaxe padrão 
+---> { <campo>: { <operador>: <valor> } }
+Os operadores são identificados pelo prefixo $
+
+
+~ Operador $lt ~
+O operador $lt seleciona os documentos em que o valor do atributo filtrado é menor do que (<) 0 valor especificado.
+-->  db.inventory.find({ qty: { $lt:20 } })
+
+~Operador $lte ~
+O operador $lte seleciona os documentos em que o valor do atributo filtrado é menor ou igual (<=) ao valor especificado.
+-->  db.inventory.find({ qty: { $lte:20 } })
+
+~ Operador $gt ~
+O operador $gt seleciona os documentos em que o valor do atributo filtrado é maior do que (>) o valor especificado.
+--> db.inventory.find({ qty: { $gt: 20 } })
+
+~ Operador $gte ~
+O operador $gte seleciona os documentos em que o valor do atributo filtrado é maior ou igual do que (>=) o valor especificado.
+--> db.inventory.find({ qty: { $gte: 20 } })
+
+~ Operador $eq ~
+O operador $eq seleciona os documentos em que o valor do atributo filtrado igual ao valor especificado.
+--> db.inventory.find({ qty: { $eq: 20 } })   === equivalente ===   db.inventory.find({ qty: 20 })
+
+~ Operador $ne ~
+O operador $ne seleciona os documentos em que o valor do atributo filtrado diferente ao valor especificado.
+--> db.inventory.find({ qty: { $ne: 20 } })
+
+~ Operador $in ~
+O operador $in seleciona os documentos em que o valor do atributo é igual a um dos valores do array. Podendo utilizar tbm o operado $or.
+Escolha o $in para executar comparações de igualdade com mais de um valor no mesmo atributo.
+--> db.inventory.find({ qty: { $in: [ 5, 15 ] } })
+
+~ Operador $nin ~
+O operador $nin seleciona os documentos em que o valor do atributo filtrado não é igual ao especificado no array, ou o campo não existe.
+--> db.inventory.find( { qty: { $nin: [ 5, 15 ] } } )
+
+~ Operador $exists ~
+SIntaxe --> { campo: { $exists: <boolean> } }
+Quando o Boolean é true, o operador $exists encontra os documentos que contêm o atributo, incluindo os documentos em que o valor do atributo é igual a null, Caso seja false, a consulta retorna somente os documentos que não contêm o atributo.
+Pode combinar operadore --> db.inventory.find({ qty: { $exists: true, $nin: [ 5, 15 ] } })
+
+~ Operador $not ~
+Sintaxe --> { campo: { $not: { <operador ou expressão> } } }
+Seleciona todoss od documentos na coleção em que o valor do atributo é menor ou igual ao valor definido. Inclui tbm os que não contêm o atributo.
+--> db.inventory.find({ price: { $not: { $gt: 1.99 } } })
+
+~ Operador $or ~
+Executa a operação lógica OU em um array de uma ou mais expressões e seleciona os documentos que satisfaçam ao menos uma das expressões.
+Sintaxe --> { $or: [{ <expression1> }, { <expression2> }, ... , { <expressionN> }] }
+--> db.inventory.find({ $or: [{ qty: { $lt: 20 } }, { price: 10 }] })
+
+~ Operador $nor ~
+Executa uma operação lógica de Negação, porém, em um array de uma ou mais expressões, e seleciona o documento em que todas essas expressões falhem.
+Sintaxe --> { $nor: [ { <expressão1> }, { <expressão2> }, ...  { <expressãoN> } ] }
+--> db.inventory.find({ $nor: [{ price: 1.99 }, { sale: true }] })
+
+~ Operador $and ~
+O operador $and executa a operação lógica E num array de uma ou mais expressões e seleciona os documentos que satisfaçam todas as expressões no array.
+Sintaxe --> { $and: [{ <expressão1> }, { <expressão2> } , ... , { <expressãoN> }] }
+
+~Combbinando expressões ~
+db.inventory.find({
+    $and: [
+        { price: { $ne: 1.99 } },
+        { price: { $exists: true } }
+    ]
+})
+
+
+db.inventory.find({
+    $and: [
+        { price: { $gt: 0.99, $lt: 1.99 } },
+        {
+            $or: [
+                { sale : true },
+                { qty : { $lt : 20 } }
+            ]
+        }
+    ]
+})
+
+
+~ Método sort()
+Sintaxe --> db.colecao.find().sort({ "campo": "1 ou -1"})
+Usando o valor positivo(1) como valor do atributo, os documentos das consultas são ordenados de forma crescente ou alfabética (também ordena por campos com string). Caso utilize o negativo(-1), os documentos de saída estarão em ordem decrescente ou contra alfabética.
+--> db.example.find({}, { value, name }).sort({ value: -1 }, { name: 1 })
+
+db.restaurants
+  .find()
+  .sort({
+    'rating': 1
+  })
+  .pretty()
+
+
+~ Método deleteOne()
+Remove apenas um documento, que deve satisfazer o critério de seleção, mesmo que muitos outros documentos também se enquadrem no critério de seleção. Se nenhum valor for passado como parâmetro, a operação removerá o primeiro documento da coleção.
+--> db.inventory.deleteOne({ status: "D" })
+
+~ Método deleteMany()
+Remove todos os documentos que satisfaçam o critério de seleção.
+-->  db.inventory.deleteMany({ status : "A" })
+Remover todos os documentos da coleção:
+-->   db.inventory.deleteMany({})
