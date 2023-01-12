@@ -1,0 +1,152 @@
+APIs orientadas a objetos e NoSQL
+
+~ Aprender a construir uma API utilizando um banco de dados não relaciona e empregar a orientação a objetos nesse processo.
+~ Utilizaremos o pacote Node chamado Mongoose, que vai facilitar o acesso ao MongoDB.
+
+*** MOngoose ***
+O MongoDb permite diferentes formas de armazenar dados, que irão definir de que modo os dados serão armazenados e consultados pelas aplicações. 
+O armazenamento por meio de Documentos é um dos mais utilizados.
+Os documentos no MongoDB são armazenados dentro das coleções, que é equivalente a uma tabela.
+
+~ ODM (Object Document Mapping) -> lidam com dados estruturados em bancos de dados não relacionais.
+
+O mongoose realiza toda a comunicação com o MongoDB, necessitando apenas que a pessoa desenvolvedora defina um Schema para uma Collection, uma espécie de molde para os documentos que serão armazenados.
+
+O Schema é utilizado para a construção da Model.
+
+
+**** Criando uma conexão no MongoDB usando Mongoose ****
+Como qualquer outro pacote do Node.js, o Mongoose precisa ser instalado.
+
+~Instalar o pacote do Mongoose:
+----->  npm install mongoose@6.1.8
+
+~ Criar arquivo chamado connection.ts, e colar o seguinte trecho de código:
+
+------------------------------------------------------
+
+import { connect } from 'mongoose'
+
+  const options = {
+  user: 'user', // Usuário do banco de dados.
+  pass: 'password', // senha do usuário do banco de dados.
+  dbName: 'trixDB', // Define qual banco de dados você irá utilizar.
+};
+
+connect('mongodb://localhost:27017/', options);
+
+------------------------------------------------------
+
+Para realizar a conexão co MongoDB, usando o Mongoose, apenas utilizamos o método connect(), passando a URI (Uniform Resource Identifier) do banco para nos conectar e a variável 'options' com as nossas configurações.
+
+
+****** Schemas *******
+O que é um Schema no Mongoose?
+--> Pode ser visto como um molde de uma coleção, será responsável por descrever toda as estrutura dos dados. Precisamos criar um molde para cada tipo de coleção que teremos em nossa base de dados.
+
+Ex: Definir um Schema para uma coleção de animais domésticos.
+--> Precisará armazenas atributos como nome, espécie, idade, peso e número de refeições diárias
+
+-------------------------------------
+
+import { Schema } from 'mongoose';
+
+const petSchema = new Schema({
+  name: { type: String, required: true },
+  species: { type: String, required: true },
+  age: { type: Number, required: false },
+  weight: { type: Number, required: true },
+  dailyMealsNumber: { type: Number, required: true, min: 2, max: 5 },
+});
+
+const Pet = model('Pet', petSchema);
+--------------------------------------
+
+
+****** Model *******
+Após definir o Schema, pensaremos na Model para a Collection. A Model irá prover todas as funções necessárias para acessar e manipular os dados (Documents) da nossa COllection.
+
+Utilizaremos a função model(), usada no trecho de código anterior, para criar uma Model para uma COllection. Essa função recebe como parâmetros, uma String (nome da Collection) e o Schema com o molde definido.
+
+Ao utilizar a Model, o Mongoose se encarregará de criar toda a estrutura no MongoDB. Caso a Collection ainda não existir, o Mongoose irá criar no banco de dados.
+
+Essa Model irá ser utilizada também para acessar os recursos fornecidos pelo MongoDB através do Mongoose.
+
+~~~~ OBS: a String com o nome da Collection irá mudar no MongoDB, de 'Pet', irá passar para 'pets'.
+
+
+******* Mongoose usando POO *******
+~ Interfaces serão utilizadas como um contrato para o nosso Schema e para a Model.
+
+--------------------------------------------------
+import { Schema, model, connect } from 'mongoose';
+
+// 1. Cria a interface que representa as informações de um Pet
+
+interface IPet {
+  name: string;
+  species: string;
+  age?: number; //Campo opcional definido por: (?)
+  weight: number;
+  dailyMealsNumber: number;
+}
+
+// 2. Cria o Schema de acordo com Interface por meio do Generic: <IPet>
+
+const petSchema = new Schema<IPet>({
+  name: { type: String, required: true },
+  species: { type: String, required: true },
+  age: { type: Number, required: false },
+  weight: { type: Number, required: true },
+  dailyMealsNumber: { type: Number, required: true, min: 2, max: 5 },
+});
+
+// 3. Cria a Model de acordo com a Interface e o Schema
+
+const Pet = model<IPet>('Pet', petSchema); // Aceita somente schemas do tipo IPet
+
+---------------------------------------------------
+
+***** Testes ******
+- Iniciar a construção dos nossos testes de unidade para a API Trix, para a camada que concentra todas as regras de negócio da nossa aplicação, a camada Service.
+
+
+***** Domain *******
+Vai ter as nossas entidades (abstrações do nosso sistema que têm regras independentes)
+
+***** Service ******
+Após identificar e desenvolver a Domain, iremos contruir a camada Service.
+
+****** COntroller *****
+Após finalizar as camadas Model e Service, contruiremos a camada Controller.
+
+****** Express ******
+Precisamos criar um arquivos para as rotas da aplicação.
+Configurar ainda os arquivos app.ts e server.ts
+
+-------------------
+// src/app.ts
+
+import express from 'express';
+import ErrorHandler from './Middlewares/ErrorHandler';
+import routes from './Routes/Routes';
+
+const app = express();
+app.use(express.json());
+app.use(routes);
+app.use(ErrorHandler.handle);
+
+export default app;
+-----------------
+
+****** ENUM *******
+Uma 'enum' é um nome simbólico para um conjunto de valores relacionados, o que significa que você pode utilizá-la para criar um ocnjuno=to de constantes para uso com variáveis e propriedades
+
+é do tipo inteiro e pode conter os números 1, 2 ou 3, que representam, respectivamente, Pending, Concluded e Reversed. 
+-------
+enum PaymentStatus {
+  pending = 1,
+  concluded,
+  reversed,
+}
+---------
