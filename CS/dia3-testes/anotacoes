@@ -1,0 +1,19 @@
+Aprender a testar de forma autamtizada os programas, se para uma determinada entrada de dados, o resultado foi o esperado.
+
+Utilizaremos a biblioteca pytest, uma framework que facilita a escrita de teste.
+
+- Instalação da biblioteca:
+python3 -m pip install pytest
+
+- Verificar instalação:
+python3 -m pytest --version
+
+- Saída esperada similar:
+This is pytest version 5.3.0, imported from /home/cassiobotaro/projects/gerenciador-tarefas/.venv/lib/python3.8/site-packages/pytest.py
+
+Necessário que o arquivo de teste possua o prefico test_ para garantir a cobertura pela ferramenta.
+
+Utilizamos a palavra reservada 'assert' para verificar se o resultado obtido é o esperado. Caso não seja a esperada, é lançada uma exceção do tipo 'AssertionError'
+
+- Para rodar o teste:
+python3 -m test
